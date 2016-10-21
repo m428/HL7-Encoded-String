@@ -1,11 +1,115 @@
-# writing out pseudo code to get started
-
 class HL7String:
-# define/set attributes somewhere here
+    # assign all instances of the HL&String class "" for all attributes upon instantiation.
+	#HL7 PID (Patient Identification) Segment
+    set_id__patient_id  = ""
+    patient_id_external_id = ""
+    patient_id_internal_id = ""
+    alternate_patient_id__pid = ""
+    patient_name = ""
+    mothers_maiden_name = ""
+    datetime_of_birth = ""
+    sex = ""
+    patient_alias = ""
+    race = ""
+    patient_address = ""
+    country_code = ""
+    phone_number__home = ""
+    phone_number__business = ""
+    primary_language = ""
+    marital_status = ""
+    religion = ""
+    patient_account_number = ""
+    ssn_number__patient = ""
+    drivers_license_number__patient = ""
+    mothers_identifier = ""
+    ethnic_group = ""
+    birth_place = ""
+    multiple_birth_indicator = ""
+    birth_order = ""
+    citizenship = ""
+    veterans_military_status = ""
+    nationality = ""
+    patient_death_date_and_time = ""
+    patient_death_indicator = ""
 
-# include a function parse that takes in the PID and PV1 params and returns a string with that data
-    def parse():
-        # do something with our predefined or set attributes
-    return # an HL7-encoded string
+    #HL7 PV1 (Patient Visit Information) Segment
+    set_id__pv1 = ""
+    patient_class = ""
+    assigned_patient_location = ""
+    admission_type = ""
+    preadmit_number = ""
+    prior_patient_location = ""
+    attending_doctor = ""
+    referring_doctor = ""
+    consulting_doctor = ""
+    hospital_service = ""
+    temporary_location = ""
+    preadmit_test_indicator = ""
+    re_admission_indicator = ""
+    admit_source = ""
+    ambulatory_status = ""
+    vip_indicator = ""
+    admitting_doctor = ""
+    patient_type = ""
+    visit_number = ""
+    financial_class = ""
+    charge_price_indicator = ""
+    courtesy_code = ""
+    credit_rating = ""
+    contract_code = ""
+    contract_effective_date = ""
+    contract_amount = ""
+    contract_period = ""
+    interest_code = ""
+    transfer_to_bad_debt_code = ""
+    transfer_to_bad_debt_date = ""
+    bad_debt_agency_code = ""
+    bad_debt_transfer_amount = ""
+    bad_debt_recovery_amount = ""
+    delete_account_indicator = ""
+    delete_account_date = ""
+    discharge_disposition = ""
+    discharged_to_location = ""
+    diet_type = ""
+    servicing_facility = ""
+    bed_status = ""
+    account_status = ""
+    pending_location = ""
+    prior_temporary_location = ""
+    admit_date_time = ""
+    discharge_date_time = ""
+    current_patient_balance = ""
+    total_charges = ""
+    total_adjustments = ""
+    total_payments = ""
+    alternate_visit_id = ""
+    visit_indicator = ""
+    other_healthcare_provider = ""
 
-# include an example patient record for testing in the console
+    # concatenate all necessary information required by the PID and PV1 HL7 segments and return a single encoded string
+    def parse(self):
+        pid = self.set_id__patient_id + "|" + self.patient_id_external_id + "|" + self.patient_id_internal_id + "|" + self.alternate_patient_id__pid + "|" + self.patient_name + "|" + self.mothers_maiden_name + "|" + self.datetime_of_birth + "|" + self.sex + "|" + self.patient_alias + "|" + self.race + "|" + self.patient_address + "|" + self.country_code + "|" + self.phone_number__home + "|" + self.phone_number__business + "|" + self.primary_language + "|" + self.marital_status + "|" + self.religion + "|" + self.patient_account_number + "|" + self.ssn_number__patient + "|" + self.drivers_license_number__patient + "|" + self.mothers_identifier + "|" + self.ethnic_group + "|" + self.birth_place + "|" + self.multiple_birth_indicator + "|" + self.birth_order + "|" + self.citizenship + "|" + self.veterans_military_status + "|" + self.nationality + "|" + self.patient_death_date_and_time + "|" + self.patient_death_indicator
+        pv1 = self.set_id__pv1 + "|" + self.patient_class + "|" + self.assigned_patient_location + "|" + self.admission_type + "|" + self.preadmit_number + "|" + self.prior_patient_location + "|" + self.attending_doctor + "|" + self.referring_doctor + "|" + self.consulting_doctor + "|" + self.hospital_service + "|" + self.temporary_location + "|" + self.preadmit_test_indicator + "|" + self.re_admission_indicator + "|" + self.admit_source + "|" + self.ambulatory_status + "|" + self.vip_indicator + "|" + self.admitting_doctor + "|" + self.patient_type + "|" + self.visit_number + "|" + self.financial_class + "|" + self.charge_price_indicator + "|" + self.courtesy_code + "|" + self.credit_rating + "|" + self.contract_code + "|" + self.contract_effective_date + "|" + self.contract_amount + "|" + self.contract_period + "|" + self.interest_code + "|" + self.transfer_to_bad_debt_code + "|" + self.transfer_to_bad_debt_date + "|" + self.bad_debt_agency_code + "|" + self.bad_debt_transfer_amount + "|" + self.bad_debt_recovery_amount + "|" + self.delete_account_indicator + "|" + self.delete_account_date + "|" + self.discharge_disposition + "|" + self.discharged_to_location + "|" + self.diet_type + "|" + self.servicing_facility + "|" + self.bed_status + "|" + self.account_status + "|" + self.pending_location + "|" + self.prior_temporary_location + "|" + self.admit_date_time + "|" + self.discharge_date_time + "|" + self.current_patient_balance + "|" + self.total_charges + "|" + self.total_adjustments + "|" + self.total_payments + "|" + self.alternate_visit_id + "|" + self.visit_indicator + "|" + self.other_healthcare_provider
+        return "PID|" + pid.upper() + "\n" + "PV1|" + pv1.upper()
+
+# create new encoded string instance from HL7 class
+new_encoded_string = HL7String()
+
+# assign a few example patient-specific PID and PV1 parameters to new_encoded_string - only a few examples are shown because PID has 32 fields while PV1 contains 52 fields
+new_encoded_string.set_id__patient_id = "1234"
+new_encoded_string.patient_id_external_id = "0987654321"
+new_encoded_string.patient_name = "John^Doe^Jr"
+new_encoded_string.sex = "M"
+new_encoded_string.birth_place = "United^States"
+new_encoded_string.mothers_maiden_name = "Williams"
+new_encoded_string.set_id__pv1 = "5678"
+new_encoded_string.preadmit_number = "238"
+new_encoded_string.admission_type = "emergency"
+new_encoded_string.admitting_doctor = "Jones"
+new_encoded_string.visit_number = "250"
+new_encoded_string.credit_rating = "780"
+new_encoded_string.account_status = "pending"
+
+
+# print the result from the class method parse(self):
+print new_encoded_string.parse()
